@@ -1,0 +1,329 @@
+{
+	"info": {
+		"_postman_id": "a48f1842-8985-4550-9b55-a51864730dc0",
+		"name": "Contact Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Create Company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Innova IT\",\r\n    \"vat\": \"BE0677932208\",\r\n    \"language\": \"FR\",\r\n    \"address\": {\r\n        \"countryIsoCode\" : \"BE\",\r\n        \"streetName\": \"Rue des Cayats\",\r\n        \"streetNumber\": \"37\",\r\n        \"zip\" : \"6001\",\r\n        \"city\" : \"Marcinelle\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version}}/companies",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version}}",
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Invalid Company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Innova IT2\",\r\n    \"vat\": \"BE0677932209\",\r\n    \"language\": \"FR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version}}/companies",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version}}",
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/{{version}}/companies/1/contacts/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version}}",
+								"companies",
+								"1",
+								"contacts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Innova IT\",\r\n    \"vat\": \"BE0677932208\",\r\n    \"language\": \"NL\",\r\n    \"address\": {\r\n        \"countryIsoCode\" : \"BE\",\r\n        \"streetName\": \"Rue des Cayats\",\r\n        \"streetNumber\": \"39\",\r\n        \"zip\" : \"6001\",\r\n        \"city\" : \"Marcinelle\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version}}/companies/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version}}",
+								"companies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/{{version}}/companies",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version}}",
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get company by VAT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/{{version}}/companies?vat=Be067793220",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version}}",
+								"companies"
+							],
+							"query": [
+								{
+									"key": "vat",
+									"value": "Be067793220"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/{{version}}/companies/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version}}",
+								"companies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact",
+			"item": [
+				{
+					"name": "Create contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n     \"firstName\": \"Michael\",\r\n     \"lastName\": \"Tnourji\",\r\n     \"contactType\": \"FREELANCER\",\r\n     \"vat\": \"BE06770444444\",\r\n     \"address\": {\r\n        \"countryIsoCode\" : \"BE\",\r\n        \"streetName\": \"Rue de la paix\",\r\n        \"streetNumber\": \"24\",\r\n        \"zip\" : \"1000\",\r\n        \"city\" : \"Bruxelles\"\r\n    }\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version}}/contacts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version}}",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create contact with missing contact type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n     \"firstName\": \"Michael\",\r\n     \"lastName\": \"Tnourji\",\r\n     \"vat\": \"BE06770444444\",\r\n     \"address\": {\r\n        \"countryIsoCode\" : \"BE\",\r\n        \"streetName\": \"Rue de la paix\",\r\n        \"streetNumber\": \"24\",\r\n        \"zip\" : \"1000\",\r\n        \"city\" : \"Bruxelles\"\r\n    }\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version}}/contacts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version}}",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create freelance with missing vat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n     \"firstName\": \"Michael\",\r\n     \"lastName\": \"Tnourji\",\r\n     \"contactType\": \"FREELANCER\",\r\n     \"address\": {\r\n        \"countryIsoCode\" : \"BE\",\r\n        \"streetName\": \"Rue de la paix\",\r\n        \"streetNumber\": \"24\",\r\n        \"zip\" : \"1000\",\r\n        \"city\" : \"Bruxelles\"\r\n    }\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version}}/contacts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version}}",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update contact",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n     \"firstName\": \"Michael\",\r\n     \"lastName\": \"Tnourjiz\",\r\n     \"contactType\": \"FREELANCER\",\r\n     \"vat\": \"FR0202202200202\",\r\n     \"address\": {\r\n        \"countryIsoCode\" : \"FR\",\r\n        \"streetName\": \"Rue de la paix\",\r\n        \"streetNumber\": \"24\",\r\n        \"zip\" : \"1000\",\r\n        \"city\" : \"Bruxelles\"\r\n    }\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/{{version}}/contacts/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version}}",
+								"contacts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get contacts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/{{version}}/contacts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version}}",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete contact",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/{{version}}/contacts/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{version}}",
+								"contacts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,24 @@
+server:
+  address: localhost
+  port: 8099
+  servlet:
+    context-path: /api/v1
+  datasource:
+    url: jdbc:h2:mem:contactmgmt
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+spring:
+  jackson:
+    default-property-inclusion: non_null
+  jpa:
+    open-in-view: false
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: 'update'
+swagger:
+  target: 'swagger-docs/'
+  contact: 'Michael Tnourji'
+  website: 'https://www.innovaitagence.com'
+  email: 'michael.tnourji@goinnovait.com'
+  tos: 'tos'
+  license: ''
